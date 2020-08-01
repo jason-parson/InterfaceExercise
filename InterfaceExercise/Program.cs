@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace InterfaceExercise
 {
@@ -6,39 +9,77 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
-            //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
+            var myCar = new Car();
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            myCar.Doors = "6";
+            myCar.Engine = "V12";
+            myCar.Transmission = "8-Speed";
 
-            //Create 3 classes called Car , Truck , & SUV
 
-            //In your IVehicle
+            var myTruck = new Truck();
+
+            myTruck.HasBed = true;
+            myTruck.Engine = "V8";
+            myTruck.Transmission = "8-Speed";
+
+
+
+            var mySuv = new Suv();
+
+
+            mySuv.HasRearDoor = true;
+            mySuv.Engine = "V8";
+            mySuv.Transmission = "8-Speed";
+
+
+
+            Console.Write("Please select the type of vehicle you desire: Car, Truck or SUV"+ " ");
+            string line = Console.ReadLine();
+
+            if (line == "Truck")
+            {
+                Console.WriteLine($"This truck was made by {myTruck.CompanyName} and has the following features. Doors:{myTruck.Doors}, Engine Size: {myTruck.Engine}, Transmission {myTruck.Transmission}.");
+                Console.WriteLine($"Remember my friend: {myTruck.Slogan}");
+            }
+            else if (line == "SUV")
+            {
+
+                Console.WriteLine($"This CUV was made by {mySuv.CompanyName} and has the following features. Doors:{mySuv.Doors}, Engine Size: {mySuv.Engine}, Transmission {mySuv.Transmission}.");
+                Console.WriteLine($"Great Selection: {mySuv.Slogan}");
+            }
+            else
+            {
+                Console.WriteLine($"This Car was made by {myCar.CompanyName} and has the following features. Doors:{myCar.Doors}, Engine Size: {myCar.Engine}, Transmission {myCar.Transmission}.");
+                Console.WriteLine($"Great Selection: {myCar.Slogan}");
+
+            }
+
+
+            var vehicleList = new List<string>();
+
+            vehicleList.Add("Toyota");
+            vehicleList.Add("Sierra");
+            vehicleList.Add("Tesla");
+
+            foreach  (var veh in vehicleList)
+           {
+                Console.WriteLine($"{veh}");
+
+            }
+
+           
+
+
+
+
             
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: All vehicles have a number of wheels... for now..
-                 */
-            
 
-            //In ICompany
-            
-                /*Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 *
-                 *
-                 * Example: public string Logo { get; set; }
-                 */
 
-            //In each of your car, truck, and suv classes
 
-                /*Create 2 members that are specific to each class
-                 * Example: truck has a bed size while car has a trunk while suv has a cargo hold size
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 * 
-                 */
 
-            //Now, create objects of your 3 classes and give their members values;
-            //Creatively display and organize their values
+
+
+
         }
     }
 }
